@@ -128,7 +128,7 @@ input:focus {
 
     .listing {
       background: white;
-      width: 33.33%;
+      // width: 33.33%;
       border-radius: 5px;
       -webkit-box-shadow: 0 1px 12px 3px rgba(214,201,214,1);
       -moz-box-shadow: 0 1px 12px 3px rgba(214,201,214,1);
@@ -194,6 +194,8 @@ input:focus {
           border: solid 2px white;
           border-radius: 50%;
           display: inline-block;
+          position: relative;
+          left: -30px;
         }
 
         .user-details {
@@ -234,6 +236,32 @@ input:focus {
         }
       }
     }
+
+    .bottom-info {
+      padding: 20px;
+
+      .price {
+        font-size: 1rem;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .location {
+        font-size: 1.1rem;
+        color: $darkgrey;
+        display: block;
+      }
+
+      .fas {
+        color: $pink;
+      }
+
+      .city {
+        font-size: 1.1rem;
+        color: $darkgrey;
+        display: block;
+      }
+    }
   }
 }
 
@@ -257,6 +285,7 @@ input:focus {
   width: 25%;
   display: inline-block;
   vertical-align: top;
+  padding: 0 15px;
 }
 
 .col-md-9 {
