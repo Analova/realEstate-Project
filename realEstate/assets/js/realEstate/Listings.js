@@ -34,6 +34,7 @@ export default class Header extends Component {
     <div className="listing">
       <div className="listing-img" >
        <span className="address">Karal-Marx-Alle 65, 10476 Berlin</span>
+
        <div className="details">
          <div className="col-md-3">
          <div className="user-img"> </div>
@@ -50,17 +51,18 @@ export default class Header extends Component {
            <span>3 bedrooms </span>
            </div>
          </div>
-
          <div className="btn"> View Listing</div>
-
        </div>
       </div>
+       </div>
+       </div>
+
       <div className="bottom-info">
      <span> $1200/ month</span>
       <span><i className="fas fa-map-marker"></i> Kreutzber Berlin</span>
       </div>
-    </div>
-    </div>
+
+
     </section>
 
     <section className="pagination">

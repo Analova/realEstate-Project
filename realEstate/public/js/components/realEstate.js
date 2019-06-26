@@ -403,22 +403,22 @@ var Header = function (_Component) {
                     ' View Listing'
                   )
                 )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  ' $1200/ month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
-                  ' Kreutzber Berlin'
-                )
               )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'bottom-info' },
+            _react2.default.createElement(
+              'span',
+              null,
+              ' $1200/ month'
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
+              ' Kreutzber Berlin'
             )
           )
         ),
