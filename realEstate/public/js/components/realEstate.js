@@ -340,71 +340,84 @@ var Header = function (_Component) {
               _react2.default.createElement(
                 'span',
                 { className: 'address' },
-                'Address'
+                'Karal-Marx-Alle 65, 10476 Berlin'
               ),
               _react2.default.createElement(
                 'div',
                 { className: 'details' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'user-img' },
-                  ' '
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'user-details' },
+                  { className: 'col-md-3' },
                   _react2.default.createElement(
-                    'span',
-                    { className: 'user-name' },
-                    'Nina Smith'
-                  ),
-                  _react2.default.createElement(
-                    'span',
-                    { className: 'post-date' },
-                    '05.08.2016'
+                    'div',
+                    { className: 'user-img' },
+                    ' '
                   )
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'listing-details' },
+                  { className: 'col-md-9' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'floor-space' },
-                    ' ',
+                    { className: 'user-details' },
                     _react2.default.createElement(
                       'span',
-                      null,
-                      '  ',
-                      _react2.default.createElement('i', { 'class': 'fas fa-square' }),
-                      ' 1000 ft\xB2 '
+                      { className: 'user-name' },
+                      'Nina Smith'
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'post-date' },
+                      '05.08.2016'
                     )
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'bedrooms' },
-                    _react2.default.createElement('i', { className: 'fas fa-bed' }),
+                    { className: 'listing-details' },
                     _react2.default.createElement(
-                      'span',
-                      null,
-                      '3 bedrooms '
+                      'div',
+                      { className: 'floor-space' },
+                      ' ',
+                      _react2.default.createElement('i', { className: 'fas fa-square' }),
+                      ' ',
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '   1000 ft\xB2 '
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'bedrooms' },
+                      _react2.default.createElement('i', { className: 'fas fa-bed' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '3 bedrooms '
+                      )
                     )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'btn' },
+                    ' View Listing'
                   )
                 )
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'bottom-info' },
-              _react2.default.createElement(
-                'span',
-                null,
-                ' $1200/ month'
               ),
               _react2.default.createElement(
-                'span',
-                null,
-                _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
-                ' Kreutzber Berlin'
+                'div',
+                { className: 'bottom-info' },
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  ' $1200/ month'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
+                  ' Kreutzber Berlin'
+                )
               )
             )
           )

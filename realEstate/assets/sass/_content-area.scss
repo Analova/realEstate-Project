@@ -152,7 +152,25 @@ input:focus {
       border-top-left-radius: 7px;
       border-top-right-radius: 7px;
 
+      &:hover {
+        .details {
+          opacity: 1;
+        }
+
+        .address {
+          opacity: 0;
+        }
+      }
+
+      .address {
+        position: absolute;
+        bottom: 20px;
+        opacity: 1;
+        transition: all 1s ease-in-out;
+      }
+
       .details {
+        opacity: 0;
         padding: 30px;
         position: absolute;
         background: rgb(181,189,200);
@@ -163,6 +181,7 @@ input:focus {
         left: 0;
         right: 0;
         bottom: 0;
+        transition: all 1s ease-in-out;
 
         .user-img {
           background: url("https://www.beblincanto.com/wp-content/uploads/2018/04/Small-Ultra-Modern-House-Plans.jpg") no-repeat center center;
@@ -180,8 +199,67 @@ input:focus {
         .user-details {
           display: inline-block;
           vertical-align: top;
+
+          .user-name {
+            display: block;
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 1);
+            font-size: 0.9rem;
+            font-weight: 300;
+          }
+
+          .post-date {
+            color: rgba(255, 255, 255, .7);
+            font-size: 0.9rem;
+          }
+        }
+
+        .listing-details {
+          margin-top: 20px;
+
+          .fas {
+            display: inline-block;
+            font-size: 20px;
+            margin-right: 15px;
+          }
+
+          span {
+            display: inline-block;
+            font-weight: 300;
+            font-size: 0.8rem;
+            vertical-align: top;
+            position: relative;
+            top: 3px;
+          }
         }
       }
     }
   }
+}
+
+.btn {
+  margin-top: 20px;
+  background: black;
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 150px;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background: $pink;
+  }
+}
+
+.col-md-3 {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.col-md-9 {
+  width: 75%;
+  display: inline-block;
 }
