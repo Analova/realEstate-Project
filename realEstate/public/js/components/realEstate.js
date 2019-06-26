@@ -333,7 +333,7 @@ var Header = function (_Component) {
           { className: 'listing-results' },
           _react2.default.createElement(
             'div',
-            { className: 'listing', ś: true },
+            { className: 'listing' },
             _react2.default.createElement(
               'div',
               { className: 'listing-img' },
@@ -370,12 +370,13 @@ var Header = function (_Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'floor-space' },
-                    _react2.default.createElement('i', { 'class': 'far fa-square' }),
                     ' ',
                     _react2.default.createElement(
                       'span',
                       null,
-                      '1000 ft\xB2 '
+                      '  ',
+                      _react2.default.createElement('i', { 'class': 'fas fa-square' }),
+                      ' 1000 ft\xB2 '
                     )
                   ),
                   _react2.default.createElement(

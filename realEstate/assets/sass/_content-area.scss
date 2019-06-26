@@ -136,6 +136,9 @@ input:focus {
     }
 
     .listing-img {
+      position: relative;
+      padding: 30px;
+      color: white;
       background: url("https://www.beblincanto.com/wp-content/uploads/2018/04/Small-Ultra-Modern-House-Plans.jpg") no-repeat center center;
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -148,6 +151,37 @@ input:focus {
       -moz-border-radius-topright: 7px;
       border-top-left-radius: 7px;
       border-top-right-radius: 7px;
+
+      .details {
+        padding: 30px;
+        position: absolute;
+        background: rgb(181,189,200);
+        background: -moz-linear-gradient(-45deg, rgba(181,189,200,.8) 0%, rgba(130,140,149,.8) 36%, rgba(40,52,59,.8) 100%);
+        background: -webkit-linear-gradient(-45deg, rgba(181,189,200,.8) 0%,rgba(130,140,149,.8) 36%,rgba(40,52,59,.8) 100%);
+        background: linear-gradient(135deg, rgba(181,189,200,.8) 0%,rgba(130,140,149,.8) 36%,rgba(40,52,59,.8) 100%);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .user-img {
+          background: url("https://www.beblincanto.com/wp-content/uploads/2018/04/Small-Ultra-Modern-House-Plans.jpg") no-repeat center center;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+          border: solid 2px white;
+          border-radius: 50%;
+          display: inline-block;
+        }
+
+        .user-details {
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
     }
   }
 }

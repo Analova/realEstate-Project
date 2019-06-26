@@ -32,7 +32,7 @@ export default class Header extends Component {
 
 
     <section className="listing-results">
-    <div className="listing"ś>
+    <div className="listing">
       <div className="listing-img" >
        <span className="address">Address</span>
        <div className="details">
@@ -42,7 +42,7 @@ export default class Header extends Component {
           <span className="post-date">05.08.2016</span>
          </div>
          <div className="listing-details">
-           <div className="floor-space"><i class="far fa-square"></i> <span>1000 ft&sup2; </span></div>
+           <div className="floor-space"> <span>  <i class="fas fa-square"></i> 1000 ft&sup2; </span></div>
            <div className="bedrooms">
            <i className="fas fa-bed"></i>
            <span>3 bedrooms </span>
