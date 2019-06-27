@@ -11,7 +11,7 @@ var  ListingsData = [
       "gym"
     ],
     homeType: "apartament",
-    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjZhyp1XfkqsBB-5WEx4IQtyeHYHukua5TK6zosWuGcXlHr9rlVA"
+    image:"https://q-ak.bstatic.com/images/hotel/max1024x768/174/174052417.jpg"
   },
   {
     address: "Charlotten Strasse 3",
@@ -39,7 +39,7 @@ var  ListingsData = [
       "gym"
     ],
     homeType: "apartament",
-    image:"https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwinwqnx7YjjAhWLY1AKHeo0BkUQjRx6BAgBEAU&url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fde%2Fluxurioses-penthouse-m-blick-auf-museuminsel-whirlpool-dachterrasse-sauna.de.html&psig=AOvVaw16Aye-3Ozd-QPZWGFgNfCt&ust=1561697122317800"
+    image:"https://q-ak.bstatic.com/images/hotel/max1024x768/136/136979723.jpg"
   },
   {
     address: "Münsterstrasse 123",
@@ -67,7 +67,7 @@ var  ListingsData = [
       "gym"
     ],
     homeType: "apartament",
-    image:"https://www.idesignarch.com/wp-content/uploads/Berlin-Mitte-Art-Loft_5.jpg"
+    image:"https://q-ak.bstatic.com/images/hotel/max1024x768/136/136979740.jpg"
   }
 ]
 

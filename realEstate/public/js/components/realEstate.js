@@ -33,7 +33,7 @@ var Filter = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Filter.__proto__ || Object.getPrototypeOf(Filter)).call(this));
 
     _this.state = {
-      name: 'Joe'
+      name: 'Merry'
     };
     return _this;
   }
@@ -54,29 +54,65 @@ var Filter = function (_Component) {
           ),
           _react2.default.createElement(
             'select',
-            { name: 'neighbourhood filter', className: 'neighbourhood' },
+            { name: 'neighbourhood filter', className: 'neighbourhood', onChange: this.props.change },
             _react2.default.createElement(
               'option',
-              null,
+              { value: 'Kreutzberg' },
               'Kreutzberg'
+            ),
+            _react2.default.createElement(
+              'option',
+              {
+                value: 'Fredrischein' },
+              'Fredrischein'
             )
           ),
           _react2.default.createElement(
             'select',
-            { name: 'housetype filter', className: 'housetype' },
+            { name: 'housetype ', className: 'housetype', onChange: this.props.change },
             _react2.default.createElement(
               'option',
-              null,
+              { value: 'Ranch' },
               'Ranch'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: 'Apartament' },
+              'Apartament'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: 'Studio' },
+              'Studio'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: 'Room' },
+              'Room'
             )
           ),
           _react2.default.createElement(
             'select',
-            { name: 'bedrooms filter', className: 'bedrooms' },
+            { name: 'bedrooms ', className: 'bedrooms', onChange: this.props.change },
             _react2.default.createElement(
               'option',
-              null,
+              { value: '2' },
               '2 BR'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '1' },
+              '1 BR'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '3' },
+              '3 BR'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '4' },
+              '4 BR'
             )
           ),
           _react2.default.createElement(
@@ -87,8 +123,9 @@ var Filter = function (_Component) {
               { className: 'title' },
               'Price'
             ),
-            _react2.default.createElement('input', { type: 'text', name: 'min-price', className: 'min-price' }),
-            _react2.default.createElement('input', { type: 'text', name: 'min-price', className: 'max-price' })
+            _react2.default.createElement('input', { type: 'text', name: 'min_price', className: 'min_price', onChange: this.props.change, value: this.props.globalState.min_price }),
+            _react2.default.createElement('input', { type: 'text', name: 'max_price', className: ' min-floor-space',
+              onChange: this.props.change, value: this.props.globalState.max_price })
           ),
           _react2.default.createElement(
             'div',
@@ -98,8 +135,10 @@ var Filter = function (_Component) {
               { className: 'title' },
               'Floor space'
             ),
-            _react2.default.createElement('input', { type: 'text', name: 'floor-space', className: 'floor-space' }),
-            _react2.default.createElement('input', { type: 'text', name: ' floor-space', className: 'floor-space' })
+            _react2.default.createElement('input', { type: 'text', name: 'min_floor_space', className: ' min-floor-space',
+              onChange: this.props.change, value: this.props.globalState.min_floor_space }),
+            _react2.default.createElement('input', { type: 'text', name: 'max_floor_space', className: ' min-floor-space',
+              onChange: this.props.change, value: this.props.globalState.max_floor_space })
           ),
           _react2.default.createElement(
             'div',
@@ -111,43 +150,45 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras', className: '' },
+              { htmlFor: 'extras', className: '' },
               _react2.default.createElement(
                 'span',
                 null,
                 'Elevators'
               ),
-              _react2.default.createElement('input', { type: 'checkbox', name: 'extras', value: 'elevator', className: '' })
+              _react2.default.createElement('input', { type: 'checkbox', name: 'elevator', value: 'elevator', className: '',
+                onChange: this.props.change })
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras', className: '' },
+              { htmlFor: 'extras', className: '' },
               _react2.default.createElement(
                 'span',
                 null,
-                'Swimming Pool'
+                'Swimming Poop'
               ),
-              _react2.default.createElement('input', { type: 'checkbox', name: 'extras', value: 'elevator', className: '' })
+              _react2.default.createElement('input', { type: 'checkbox', name: 'swimming_pool', value: 'swimming_pool', className: '', onChange: this.props.change })
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras', className: '' },
+              { htmlFor: 'extras', className: '' },
               _react2.default.createElement(
                 'span',
                 null,
                 'Finished Basement'
               ),
-              _react2.default.createElement('input', { type: 'checkbox', name: 'extras', value: 'finished basement', className: '' })
+              _react2.default.createElement('input', { type: 'checkbox', name: 'basement', value: 'basement', className: '', onChange: this.props.change })
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras', className: '' },
+              { htmlFor: 'extras', className: '' },
               _react2.default.createElement(
                 'span',
                 null,
                 'Gym'
               ),
-              _react2.default.createElement('input', { type: 'checkbox', name: 'extras', value: 'gym', className: '' })
+              _react2.default.createElement('input', { type: 'checkbox', name: 'gym', value: 'gym', className: '',
+                onChange: this.props.change })
             )
           )
         )
@@ -278,471 +319,203 @@ var Header = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 
-    _this.state = {
-      name: 'Joe'
-    };
+    _this.state = {};
+    _this.loopListings = _this.loopListings.bind(_this);
     return _this;
   }
 
   _createClass(Header, [{
-    key: 'render',
+    key: "loopListings",
+    value: function loopListings() {
+      var listingsData = this.props.listingsData;
+      // var data= this.props.listingsData
+
+      return listingsData.map(function (listing, index) {
+        return _react2.default.createElement(
+          "div",
+          { className: "col-md-3", key: index },
+          _react2.default.createElement(
+            "div",
+            { className: "listing" },
+            _react2.default.createElement(
+              "div",
+              { className: "listing-img", style: { background: "url(\"" + listing.image + "\") no-repeat center center" } },
+              _react2.default.createElement(
+                "span",
+                { className: "address" },
+                listing.address
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "details" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "col-md-3" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "user-img" },
+                    " "
+                  )
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "col-md-9" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "user-details" },
+                    _react2.default.createElement(
+                      "span",
+                      { className: "user-name" },
+                      "Nina Smith"
+                    ),
+                    _react2.default.createElement(
+                      "span",
+                      { className: "post-date" },
+                      "05.08.2016"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "listing-details" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "floor-space" },
+                      " ",
+                      _react2.default.createElement("i", { className: "fas fa-square" }),
+                      " ",
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "   1000 ft\xB2 "
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "bedrooms" },
+                      _react2.default.createElement("i", { className: "fas fa-bed" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        listing.bedrooms,
+                        " bedrooms "
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "btn" },
+                    " View Listing"
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "bottom-info" },
+              _react2.default.createElement(
+                "span",
+                { className: "location" },
+                " $",
+                listing.price
+              ),
+              _react2.default.createElement(
+                "span",
+                { className: "city" },
+                _react2.default.createElement("i", { className: "fas fa-map-marker" }),
+                " ",
+                listing.city,
+                " , ",
+                listing.state
+              )
+            )
+          )
+        );
+      });
+    }
+  }, {
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'section',
-        { id: 'listings' },
+        "section",
+        { id: "listings" },
         _react2.default.createElement(
-          'section',
-          { className: 'search-area' },
-          _react2.default.createElement('input', { type: 'text', name: 'search' })
+          "section",
+          { className: "search-area" },
+          _react2.default.createElement("input", { type: "text", name: "search" })
         ),
         _react2.default.createElement(
-          'section',
-          { className: 'sortby-area' },
+          "section",
+          { className: "sortby-area" },
           _react2.default.createElement(
-            'div',
-            { className: 'results' },
-            '390 results found'
+            "div",
+            { className: "results" },
+            "390 results found"
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'sort-options' },
+            "div",
+            { className: "sort-options" },
             _react2.default.createElement(
-              'select',
-              { name: 'sortby', className: 'sortby' },
+              "select",
+              { name: "sortby", className: "sortby" },
               _react2.default.createElement(
-                'option',
-                { value: 'price-asc' },
-                ' Highest Price'
+                "option",
+                { value: "price-asc" },
+                " Highest Price"
               ),
               _react2.default.createElement(
-                'option',
-                { value: 'price-asc' },
-                ' Lowest Price'
+                "option",
+                { value: "price-asc" },
+                " Lowest Price"
               )
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'view' },
-              _react2.default.createElement('i', { className: 'fas fa-list' }),
-              _react2.default.createElement('i', { className: 'fas fa-th' })
+              "div",
+              { className: "view" },
+              _react2.default.createElement("i", { className: "fas fa-list" }),
+              _react2.default.createElement("i", { className: "fas fa-th" })
             )
           )
         ),
         _react2.default.createElement(
-          'section',
-          { className: 'listing-results' },
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listing' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listing-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'Karal-Marx-Alle 65, 10476 Berlin'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-img' },
-                      ' '
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Nina Smith'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        '05.08.2016'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listing-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        ' ',
-                        _react2.default.createElement('i', { className: 'fas fa-square' }),
-                        ' ',
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '   1000 ft\xB2 '
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fas fa-bed' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'btn' },
-                      ' View Listing'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'location' },
-                  ' $1200/ month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'city' },
-                  _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
-                  ' Kreutzber Berlin'
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listing' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listing-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'Karal-Marx-Alle 65, 10476 Berlin'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-img' },
-                      ' '
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Nina Smith'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        '05.08.2016'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listing-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        ' ',
-                        _react2.default.createElement('i', { className: 'fas fa-square' }),
-                        ' ',
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '   1000 ft\xB2 '
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fas fa-bed' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'btn' },
-                      ' View Listing'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'location' },
-                  ' $1200/ month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'city' },
-                  _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
-                  ' Kreutzber Berlin'
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listing' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listing-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'Karal-Marx-Alle 65, 10476 Berlin'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-img' },
-                      ' '
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Nina Smith'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        '05.08.2016'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listing-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        ' ',
-                        _react2.default.createElement('i', { className: 'fas fa-square' }),
-                        ' ',
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '   1000 ft\xB2 '
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fas fa-bed' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'btn' },
-                      ' View Listing'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'location' },
-                  ' $1200/ month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'city' },
-                  _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
-                  ' Kreutzber Berlin'
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listing' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listing-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'Karal-Marx-Alle 65, 10476 Berlin'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-img' },
-                      ' '
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Nina Smith'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        '05.08.2016'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listing-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        ' ',
-                        _react2.default.createElement('i', { className: 'fas fa-square' }),
-                        ' ',
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '   1000 ft\xB2 '
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fas fa-bed' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'btn' },
-                      ' View Listing'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'location' },
-                  ' $1200/ month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { className: 'city' },
-                  _react2.default.createElement('i', { className: 'fas fa-map-marker' }),
-                  ' Kreutzber Berlin'
-                )
-              )
-            )
-          )
+          "section",
+          { className: "listing-results" },
+          this.loopListings()
         ),
         _react2.default.createElement(
-          'section',
-          { id: 'pagination' },
+          "section",
+          { id: "pagination" },
           _react2.default.createElement(
-            'ul',
-            { className: 'pages' },
+            "ul",
+            { className: "pages" },
             _react2.default.createElement(
-              'li',
+              "li",
               null,
-              ' Prev'
+              " Prev"
             ),
             _react2.default.createElement(
-              'li',
-              { className: 'active' },
-              ' 1'
+              "li",
+              { className: "active" },
+              " 1"
             ),
             _react2.default.createElement(
-              'li',
+              "li",
               null,
-              ' 2'
+              " 2"
             ),
             _react2.default.createElement(
-              'li',
+              "li",
               null,
-              ' 3'
+              " 3"
             ),
             _react2.default.createElement(
-              'li',
+              "li",
               null,
-              ' 4'
+              " 4"
             ),
             _react2.default.createElement(
-              'li',
+              "li",
               null,
-              ' Next'
+              " Next"
             )
           )
         )
@@ -775,7 +548,7 @@ var ListingsData = [{
   floorSpace: 2000,
   extras: ["elevator", "gym"],
   homeType: "apartament",
-  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjZhyp1XfkqsBB-5WEx4IQtyeHYHukua5TK6zosWuGcXlHr9rlVA"
+  image: "https://q-ak.bstatic.com/images/hotel/max1024x768/174/174052417.jpg"
 }, {
   address: "Charlotten Strasse 3",
   city: "Düsseldorf",
@@ -795,7 +568,7 @@ var ListingsData = [{
   floorSpace: 1500,
   extras: ["elevator", "gym"],
   homeType: "apartament",
-  image: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwinwqnx7YjjAhWLY1AKHeo0BkUQjRx6BAgBEAU&url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fde%2Fluxurioses-penthouse-m-blick-auf-museuminsel-whirlpool-dachterrasse-sauna.de.html&psig=AOvVaw16Aye-3Ozd-QPZWGFgNfCt&ust=1561697122317800"
+  image: "https://q-ak.bstatic.com/images/hotel/max1024x768/136/136979723.jpg"
 }, {
   address: "Münsterstrasse 123",
   city: "Frankfurt",
@@ -815,7 +588,7 @@ var ListingsData = [{
   floorSpace: 4300,
   extras: ["elevator", "gym"],
   homeType: "apartament",
-  image: "https://www.idesignarch.com/wp-content/uploads/Berlin-Mitte-Art-Loft_5.jpg"
+  image: "https://q-ak.bstatic.com/images/hotel/max1024x768/136/136979740.jpg"
 }];
 
 exports.default = ListingsData;
@@ -856,6 +629,8 @@ var _listingsData2 = _interopRequireDefault(_listingsData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -871,15 +646,36 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      listingsData: _listingsData2.default
+      name: "Marie",
+      listingsData: _listingsData2.default,
+      min_price: 0,
+      max_price: 10000000,
+      min_floor_space: 0,
+      max_floor_space: 5000,
+      basement: false,
+      elevator: false,
+      gym: false,
+      swimming_pool: false
     };
+    _this.change = _this.change.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
+    key: 'change',
+    value: function change(event) {
+      var _this2 = this;
+
+      var name = event.target.name;
+      var value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+      this.setState(_defineProperty({}, name, value), function () {
+        console.log(_this2.state);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.listingsData);
+      // console.log(this.state.listingsData)
       return _react2.default.createElement(
         'div',
         null,
@@ -887,8 +683,8 @@ var App = function (_Component) {
         _react2.default.createElement(
           'section',
           { id: 'content-area' },
-          _react2.default.createElement(_Filter2.default, null),
-          _react2.default.createElement(_Listings2.default, null)
+          _react2.default.createElement(_Filter2.default, { change: this.change, globalState: this.state }),
+          _react2.default.createElement(_Listings2.default, { listingsData: this.state.listingsData })
         )
       );
     }

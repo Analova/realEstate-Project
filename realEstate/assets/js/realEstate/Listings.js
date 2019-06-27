@@ -5,9 +5,51 @@ export default class Header extends Component {
   constructor () {
     super()
     this.state = {
-      name: 'Joe'
+
     }
+    this.loopListings= this.loopListings.bind(this)
   }
+
+ loopListings(){
+
+      var {listingsData}= this.props
+      // var data= this.props.listingsData
+   return listingsData.map((listing, index)=>{
+     return (
+       <div className="col-md-3" key={index}>
+     <div className="listing" >
+       <div className="listing-img" style={{background: `url("${listing.image}") no-repeat center center`}} >
+        <span className="address">{listing.address}</span>
+        <div className="details">
+          <div className="col-md-3">
+          <div className="user-img"> </div>
+           </div>
+              <div className="col-md-9">
+          <div className="user-details">
+           <span className="user-name">Nina Smith</span>
+           <span className="post-date">05.08.2016</span>
+          </div>
+          <div className="listing-details">
+            <div className="floor-space"> <i className="fas fa-square"></i> <span>   1000 ft&sup2; </span></div>
+            <div className="bedrooms">
+            <i className="fas fa-bed"></i>
+            <span>{listing.bedrooms} bedrooms </span>
+            </div>
+          </div>
+          <div className="btn"> View Listing</div>
+        </div>
+       </div>
+        </div>
+        <div className="bottom-info">
+       <span className="location"> ${listing.price}</span>
+        <span className="city"><i className="fas fa-map-marker"></i> {listing.city} , {listing.state}</span>
+        </div>
+        </div>
+          </div>
+     )
+   })
+ }
+
 
   render () {
     return (
@@ -32,131 +74,7 @@ export default class Header extends Component {
 
 
     <section className="listing-results">
-
-    <div className="col-md-3">
-  <div className="listing">
-    <div className="listing-img" >
-     <span className="address">Karal-Marx-Alle 65, 10476 Berlin</span>
-     <div className="details">
-       <div className="col-md-3">
-       <div className="user-img"> </div>
-        </div>
-           <div className="col-md-9">
-       <div className="user-details">
-        <span className="user-name">Nina Smith</span>
-        <span className="post-date">05.08.2016</span>
-       </div>
-       <div className="listing-details">
-         <div className="floor-space"> <i className="fas fa-square"></i> <span>   1000 ft&sup2; </span></div>
-         <div className="bedrooms">
-         <i className="fas fa-bed"></i>
-         <span>3 bedrooms </span>
-         </div>
-       </div>
-       <div className="btn"> View Listing</div>
-     </div>
-    </div>
-     </div>
-     <div className="bottom-info">
-    <span className="location"> $1200/ month</span>
-     <span className="city"><i className="fas fa-map-marker"></i> Kreutzber Berlin</span>
-     </div>
-     </div>
-       </div>
-
-       <div className="col-md-3">
-     <div className="listing">
-       <div className="listing-img" >
-        <span className="address">Karal-Marx-Alle 65, 10476 Berlin</span>
-        <div className="details">
-          <div className="col-md-3">
-          <div className="user-img"> </div>
-           </div>
-              <div className="col-md-9">
-          <div className="user-details">
-           <span className="user-name">Nina Smith</span>
-           <span className="post-date">05.08.2016</span>
-          </div>
-          <div className="listing-details">
-            <div className="floor-space"> <i className="fas fa-square"></i> <span>   1000 ft&sup2; </span></div>
-            <div className="bedrooms">
-            <i className="fas fa-bed"></i>
-            <span>3 bedrooms </span>
-            </div>
-          </div>
-          <div className="btn"> View Listing</div>
-        </div>
-       </div>
-        </div>
-        <div className="bottom-info">
-       <span className="location"> $1200/ month</span>
-        <span className="city" ><i className="fas fa-map-marker"></i> Kreutzber Berlin</span>
-        </div>
-        </div>
-          </div>
-
-          <div className="col-md-3">
-        <div className="listing">
-          <div className="listing-img" >
-           <span className="address">Karal-Marx-Alle 65, 10476 Berlin</span>
-           <div className="details">
-             <div className="col-md-3">
-             <div className="user-img"> </div>
-              </div>
-                 <div className="col-md-9">
-             <div className="user-details">
-              <span className="user-name">Nina Smith</span>
-              <span className="post-date">05.08.2016</span>
-             </div>
-             <div className="listing-details">
-               <div className="floor-space"> <i className="fas fa-square"></i> <span>   1000 ft&sup2; </span></div>
-               <div className="bedrooms">
-               <i className="fas fa-bed"></i>
-               <span>3 bedrooms </span>
-               </div>
-             </div>
-             <div className="btn"> View Listing</div>
-           </div>
-          </div>
-           </div>
-           <div className="bottom-info">
-          <span className="location"> $1200/ month</span>
-           <span className="city"><i className="fas fa-map-marker"></i> Kreutzber Berlin</span>
-           </div>
-           </div>
-             </div>
-
-             <div className="col-md-3">
-           <div className="listing">
-             <div className="listing-img" >
-              <span className="address">Karal-Marx-Alle 65, 10476 Berlin</span>
-              <div className="details">
-                <div className="col-md-3">
-                <div className="user-img"> </div>
-                 </div>
-                    <div className="col-md-9">
-                <div className="user-details">
-                 <span className="user-name">Nina Smith</span>
-                 <span className="post-date">05.08.2016</span>
-                </div>
-                <div className="listing-details">
-                  <div className="floor-space"> <i className="fas fa-square"></i> <span>   1000 ft&sup2; </span></div>
-                  <div className="bedrooms">
-                  <i className="fas fa-bed"></i>
-                  <span>3 bedrooms </span>
-                  </div>
-                </div>
-                <div className="btn"> View Listing</div>
-              </div>
-             </div>
-              </div>
-              <div className="bottom-info">
-             <span className="location"> $1200/ month</span>
-              <span className="city"><i className="fas fa-map-marker"></i> Kreutzber Berlin</span>
-              </div>
-              </div>
-                </div>
-
+  {this.loopListings ()}
 
     </section>
 

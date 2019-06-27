@@ -11,17 +11,37 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      listingsData
+      name:"Marie",
+      listingsData,
+      min_price:0,
+      max_price:10000000,
+      min_floor_space:0,
+      max_floor_space:5000,
+      basement:false,
+      elevator:false,
+      gym:false,
+      swimming_pool:false,
     }
+    this.change=this.change.bind(this)
+  }
+  change (event){
+    var name=event.target.name
+    var value = (event.target.type === 'checkbox')? event.target.checked : event.target.value
+    this.setState({
+    [name]: value
+  }, ()=>{
+    console.log(this.state)
+  })
+
   }
 
   render () {
-    console.log(this.state.listingsData)
+    // console.log(this.state.listingsData)
     return (<div >
    <Header />
      <section id="content-area">
-     <Filter/>
-     <Listings/>
+     <Filter change={this.change} globalState={this.state} />
+     <Listings listingsData={this.state.listingsData}/>
      </section>
       </div>)
   }
