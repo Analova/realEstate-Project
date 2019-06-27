@@ -1,7 +1,6 @@
 #content-area {
   overflow: auto;
   width: 100%;
-  background: black;
   min-height: 100vh;
 }
 
@@ -250,6 +249,7 @@ input:focus {
         font-size: 1.1rem;
         color: $darkgrey;
         display: block;
+        font-size: 1.2rem;
       }
 
       .fas {
@@ -258,8 +258,9 @@ input:focus {
 
       .city {
         font-size: 1.1rem;
-        color: $darkgrey;
+        color: $lightgrey;
         display: block;
+        font-size: 1rem;
       }
     }
   }
@@ -278,6 +279,31 @@ input:focus {
   &:hover {
     cursor: pointer;
     background: $pink;
+  }
+}
+
+#pagination {
+  text-align: center;
+
+  .pages {
+    display: inline-block;
+    background: white;
+    -webkit-box-shadow: 0 1px 12px 3px rgba(214,201,214,1);
+    -moz-box-shadow: 0 1px 12px 3px rgba(214,201,214,1);
+    box-shadow: 0 1px 12px 3px rgba(214,201,214,1);
+
+    li {
+      padding: 20px 30px;
+      display: inline-block;
+
+      &.active,
+      &:hover {
+        background: $pink;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+      }
+    }
   }
 }
 
