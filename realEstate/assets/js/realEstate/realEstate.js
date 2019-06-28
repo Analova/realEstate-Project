@@ -11,6 +11,9 @@ class App extends Component {
     this.state = {
       name: "Marie",
       listingsData,
+      city:"All",
+      homeType:"All",
+      bedrooms:0,
       min_price: 0,
       max_price: 10000000,
       min_floor_space: 0,
@@ -41,10 +44,56 @@ class App extends Component {
     );
   }
  filteredData(){
-   var newData = this.state.listingsData.filter((item)=>{
+   var newData = this.state.listingsData.filter((item, index)=>{
+     console.log(item.extras[index] != this.state.elevator)
      return item.price >= this.state.min_price && item.price <= this.state.max_price
-     && item.floorSpace >= this.state.min_floor_space && item.floorSpace <= this.state.max_floor_space
+     && item.floorSpace >= this.state.min_floor_space && item.floorSpace <= this.state.max_floor_space && item.rooms >=this.state.bedrooms && item.elevator != this.state.elevator
+
    })
+
+   if(this.state.city !="All"){
+     newData = newData.filter((item)=>{
+       return item.city === this.state.city
+     })
+   }
+
+   if(this.state.homeType !="All"){
+     newData = newData.filter((item)=>{
+       return item.homeType === this.state.homeType
+     })
+   }
+
+
+if(this.state.swimming_pool != false){
+  newData = newData.filter((item) =>{
+    return item.extras.includes('swimming_pool') == this.state.swimming_pool
+  })
+  console.log(newData)
+}
+
+if(this.state.elevator != false){
+  newData = newData.filter((item) =>{
+    return item.extras.includes('elevator') == this.state.elevator
+  })
+  console.log(newData)
+}
+
+if(this.state.gym != false){
+  newData = newData.filter((item) =>{
+    return item.extras.includes('gym') == this.state.gym
+  })
+  console.log(newData)
+}
+
+if(this.state.basement!= false){
+  newData = newData.filter((item) =>{
+    return item.extras.includes('basement') == this.state.basement
+  })
+  console.log(newData)
+}
+
+
+
    this.setState({
      filteredData: newData
    })

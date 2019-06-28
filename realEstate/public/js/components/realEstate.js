@@ -55,32 +55,52 @@ var Filter = function (_Component) {
           _react2.default.createElement(
             "select",
             {
-              name: "neighbourhood filter",
+              name: "city",
               className: "neighbourhood",
               onChange: this.props.change
             },
             _react2.default.createElement(
               "option",
-              { value: "Kreutzberg" },
-              "Kreutzberg"
+              { value: "All" },
+              "All"
             ),
             _react2.default.createElement(
               "option",
-              { value: "Fredrischein" },
-              "Fredrischein"
+              { value: "Berlin" },
+              "Berlin"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "D\xFCsseldorf" },
+              "D\xFCsseldorf"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "M\xFCnich" },
+              "M\xFCnich"
             )
           ),
           _react2.default.createElement(
             "select",
             {
-              name: "housetype ",
-              className: "housetype",
+              name: "homeType",
+              className: "homeType",
               onChange: this.props.change
             },
             _react2.default.createElement(
               "option",
+              { value: "All" },
+              "All Homes"
+            ),
+            _react2.default.createElement(
+              "option",
               { value: "Ranch" },
               "Ranch"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "Condo" },
+              "Condo"
             ),
             _react2.default.createElement(
               "option",
@@ -94,36 +114,41 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               "option",
-              { value: "Room" },
-              "Room"
+              { value: "House" },
+              " House"
             )
           ),
           _react2.default.createElement(
             "select",
             {
-              name: "bedrooms ",
-              className: "bedrooms",
-              onChange: this.props.change
+              name: "bedrooms"
+              // className="bedrooms"
+              , onChange: this.props.change
             },
             _react2.default.createElement(
               "option",
-              { value: "2" },
-              "2 BR"
+              { value: "0" },
+              "0+ BR"
             ),
             _react2.default.createElement(
               "option",
               { value: "1" },
-              "1 BR"
+              "1+ BR"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "2" },
+              "2+ BR"
             ),
             _react2.default.createElement(
               "option",
               { value: "3" },
-              "3 BR"
+              "3+ BR"
             ),
             _react2.default.createElement(
               "option",
               { value: "4" },
-              "4 BR"
+              "4+ BR"
             )
           ),
           _react2.default.createElement(
@@ -606,21 +631,21 @@ var ListingsData = [{
   address: "Karal-Marx-Alee 76",
   city: "Berlin",
   state: "Berlin",
-  rooms: 3,
+  rooms: 4,
   price: 220000,
   floorSpace: 2000,
-  extras: ["elevator", "gym"],
-  homeType: "apartament",
+  extras: ["elevator", "gym", "basement"],
+  homeType: "Apartament",
   image: "https://q-ak.bstatic.com/images/hotel/max1024x768/174/174052417.jpg"
 }, {
   address: "Charlotten Strasse 3",
   city: "Düsseldorf",
   state: "WF",
-  rooms: 1,
+  rooms: 3,
   price: 24556,
   floorSpace: 1000,
-  extras: ["elevator", "gym"],
-  homeType: "apartament",
+  extras: ["elevator", "swimming_pool"],
+  homeType: "Apartament",
   image: "https://www.engelvoelkers.com/images/5c221d7b-6163-442c-a4ca-7cb5bf13382b/beautiful-apartment-in-ciutat-vella?w=576&h=432"
 }, {
   address: "Rupprecher Strasse 21",
@@ -629,48 +654,48 @@ var ListingsData = [{
   rooms: 2,
   price: 345355,
   floorSpace: 1500,
-  extras: ["elevator", "gym"],
-  homeType: "apartament",
+  extras: ["swimming_pool"],
+  homeType: "Condo",
   image: "https://q-ak.bstatic.com/images/hotel/max1024x768/136/136979723.jpg"
 }, {
   address: "Münsterstrasse 123",
-  city: "Frankfurt",
+  city: "Berlin",
   state: "FN",
-  rooms: 3,
+  rooms: 2,
   price: 80000,
   floorSpace: 3400,
-  extras: ["elevator", "gym"],
-  homeType: "apartament",
+  extras: ["elevator", "basement", "swimming_pool"],
+  homeType: "Apartament",
   image: "https://www.callsen.de/images/ferienwohnungen/binz/villamathilde/ferienwohnung_22/10_Wohnzimmer.jpg"
 }, {
   address: "FrankfurterStrasse 5",
-  city: "Postam",
+  city: "Düsseldorf",
   state: "Berlin",
-  rooms: 4,
+  rooms: 1,
   price: 6030000,
   floorSpace: 4300,
-  extras: ["elevator", "gym"],
-  homeType: "apartament",
+  extras: ["elevator"],
+  homeType: "Studio",
   image: "https://q-ak.bstatic.com/images/hotel/max1024x768/136/136979740.jpg"
 }, {
   address: "Wurst Strasse 3",
-  city: "Bremen",
+  city: "Berlin",
   state: "WF",
   rooms: 1,
   price: 220000,
   floorSpace: 1000,
-  extras: ["elevator", "gym"],
-  homeType: "apartament",
+  extras: ["elevator"],
+  homeType: "Studio",
   image: "https://www.engelvoelkers.com/images/5c221d7b-6163-442c-a4ca-7cb5bf13382b/beautiful-apartment-in-ciutat-vella?w=576&h=432"
 }, {
   address: "Ana-Mark 76",
-  city: "Berlin",
+  city: "Münich",
   state: "WF",
-  rooms: 1,
+  rooms: 2,
   price: 150000,
   floorSpace: 1000,
-  extras: ["elevator", "gym"],
-  homeType: "apartament",
+  extras: ["elevator", "swimming_pool"],
+  homeType: "House",
   image: "https://www.callsen.de/images/ferienwohnungen/binz/villamathilde/ferienwohnung_22/10_Wohnzimmer.jpg"
 }];
 
@@ -731,6 +756,9 @@ var App = function (_Component) {
     _this.state = {
       name: "Marie",
       listingsData: _listingsData2.default,
+      city: "All",
+      homeType: "All",
+      bedrooms: 0,
       min_price: 0,
       max_price: 10000000,
       min_floor_space: 0,
@@ -763,9 +791,51 @@ var App = function (_Component) {
     value: function filteredData() {
       var _this3 = this;
 
-      var newData = this.state.listingsData.filter(function (item) {
-        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.floorSpace >= _this3.state.min_floor_space && item.floorSpace <= _this3.state.max_floor_space;
+      var newData = this.state.listingsData.filter(function (item, index) {
+        console.log(item.extras[index] != _this3.state.elevator);
+        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.floorSpace >= _this3.state.min_floor_space && item.floorSpace <= _this3.state.max_floor_space && item.rooms >= _this3.state.bedrooms && item.elevator != _this3.state.elevator;
       });
+
+      if (this.state.city != "All") {
+        newData = newData.filter(function (item) {
+          return item.city === _this3.state.city;
+        });
+      }
+
+      if (this.state.homeType != "All") {
+        newData = newData.filter(function (item) {
+          return item.homeType === _this3.state.homeType;
+        });
+      }
+
+      if (this.state.swimming_pool != false) {
+        newData = newData.filter(function (item) {
+          return item.extras.includes('swimming_pool') == _this3.state.swimming_pool;
+        });
+        console.log(newData);
+      }
+
+      if (this.state.elevator != false) {
+        newData = newData.filter(function (item) {
+          return item.extras.includes('elevator') == _this3.state.elevator;
+        });
+        console.log(newData);
+      }
+
+      if (this.state.gym != false) {
+        newData = newData.filter(function (item) {
+          return item.extras.includes('gym') == _this3.state.gym;
+        });
+        console.log(newData);
+      }
+
+      if (this.state.basement != false) {
+        newData = newData.filter(function (item) {
+          return item.extras.includes('basement') == _this3.state.basement;
+        });
+        console.log(newData);
+      }
+
       this.setState({
         filteredData: newData
       });
