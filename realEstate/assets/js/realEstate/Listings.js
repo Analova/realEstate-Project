@@ -1,96 +1,100 @@
-import React, { Component} from 'react'
-
+import React, { Component } from "react";
 
 export default class Header extends Component {
-  constructor () {
-    super()
-    this.state = {
-
-    }
-    this.loopListings= this.loopListings.bind(this)
+  constructor() {
+    super();
+    this.state = {};
+    this.loopListings = this.loopListings.bind(this);
   }
 
- loopListings(){
-
-      var {listingsData}= this.props
-      // var data= this.props.listingsData
-   return listingsData.map((listing, index)=>{
-     return (
-       <div className="col-md-3" key={index}>
-     <div className="listing" >
-       <div className="listing-img" style={{background: `url("${listing.image}") no-repeat center center`}} >
-        <span className="address">{listing.address}</span>
-        <div className="details">
-          <div className="col-md-3">
-          <div className="user-img"> </div>
-           </div>
-              <div className="col-md-9">
-          <div className="user-details">
-           <span className="user-name">Nina Smith</span>
-           <span className="post-date">05.08.2016</span>
-          </div>
-          <div className="listing-details">
-            <div className="floor-space"> <i className="fas fa-square"></i> <span>   1000 ft&sup2; </span></div>
-            <div className="bedrooms">
-            <i className="fas fa-bed"></i>
-            <span>{listing.bedrooms} bedrooms </span>
+  loopListings() {
+    var { listingsData } = this.props;
+    // var data= this.props.listingsData
+   if(listingsData == undefined || listingsData.length == 0){
+     return "Sorry your filter did not mach any listings!"
+   }
+    return listingsData.map((listing, index) => {
+      return (
+        <div className="col-md-3" key={index}>
+          <div className="listing">
+            <div
+              className="listing-img"
+              style={{
+                background: `url("${listing.image}") no-repeat center center`
+              }}
+            >
+              <span className="address">{listing.address}</span>
+              <div className="details">
+                <div className="col-md-3">
+                  <div className="user-img"> </div>
+                </div>
+                <div className="col-md-9">
+                  <div className="user-details">
+                    <span className="user-name">Nina Smith</span>
+                    <span className="post-date">05.08.2016</span>
+                  </div>
+                  <div className="listing-details">
+                    <div className="floor-space">
+                      {" "}
+                      <i className="fas fa-square" />{" "}
+                      <span> 1000 ft&sup2; </span>
+                    </div>
+                    <div className="bedrooms">
+                      <i className="fas fa-bed" />
+                      <span>{listing.bedrooms} bedrooms </span>
+                    </div>
+                  </div>
+                  <div className="btn"> View Listing</div>
+                </div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="location"> ${listing.price}</span>
+              <span className="city">
+                <i className="fas fa-map-marker" /> {listing.city} ,{" "}
+                {listing.state}
+              </span>
             </div>
           </div>
-          <div className="btn"> View Listing</div>
         </div>
-       </div>
-        </div>
-        <div className="bottom-info">
-       <span className="location"> ${listing.price}</span>
-        <span className="city"><i className="fas fa-map-marker"></i> {listing.city} , {listing.state}</span>
-        </div>
-        </div>
-          </div>
-     )
-   })
- }
+      );
+    });
+  }
 
-
-  render () {
+  render() {
     return (
-    <section id="listings">
-    <section className="search-area">
-    <input type="text" name="search"/>
-    </section>
+      <section id="listings">
+        <section className="search-area">
+          <input type="text" name="search" />
+        </section>
 
-    <section className="sortby-area">
-    <div className="results">390 results found</div>
-    <div className="sort-options">
-     <select name="sortby" className="sortby">
-       <option value="price-asc"> Highest Price</option>
-       <option value="price-asc"> Lowest Price</option>
-     </select>
-     <div className="view">
-     <i className="fas fa-list"></i>
-     <i className="fas fa-th"></i>
-     </div>
-    </div>
-    </section>
+        <section className="sortby-area">
+          <div className="results">390 results found</div>
+          <div className="sort-options">
+            <select name="sortby" className="sortby">
+              <option value="price-asc"> Highest Price</option>
+              <option value="price-asc"> Lowest Price</option>
+            </select>
+            <div className="view">
+              <i className="fas fa-list" />
+              <i className="fas fa-th" />
+            </div>
+          </div>
+        </section>
 
+        <section className="listing-results">{this.loopListings()}</section>
 
-    <section className="listing-results">
-  {this.loopListings ()}
-
-    </section>
-
-
-    <section id="pagination">
-      <ul className="pages">
-      <li> Prev</li>
-      <li className="active"> 1</li>
-      <li> 2</li>
-      <li> 3</li>
-      <li> 4</li>
-      <li> Next</li>
-      </ul>
-    </section>
-
-    </section>
-    )
+        <section id="pagination">
+          <ul className="pages">
+            <li> Prev</li>
+            <li className="active"> 1</li>
+            <li> 2</li>
+            <li> 3</li>
+            <li> 4</li>
+            <li> Next</li>
+          </ul>
+        </section>
+      </section>
+    );
   }
 }
