@@ -284,6 +284,8 @@ input:focus {
 }
 
 #pagination {
+  width: 100%;
+  display: block;
   text-align: center;
 
   .pages {

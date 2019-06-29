@@ -39,11 +39,11 @@ export default class Header extends Component {
                       <div className="floor-space">
                         {" "}
                         <i className="fas fa-square" />{" "}
-                        <span> 1000 ft&sup2; </span>
+                        <span> {listing.floorSpace} ft&sup2; </span>
                       </div>
                       <div className="bedrooms">
                         <i className="fas fa-bed" />
-                        <span>{listing.bedrooms} bedrooms </span>
+                        <span>{listing.rooms} bedrooms </span>
                       </div>
                     </div>
                     <div className="btn"> View Listing</div>
@@ -85,11 +85,11 @@ export default class Header extends Component {
                     <div className="floor-space">
                       {" "}
                       <i className="fas fa-square" />{" "}
-                      <span> 1000 ft&sup2; </span>
+                      <span> {listing.floorSpace}  ft&sup2; </span>
                     </div>
                     <div className="bedrooms">
                       <i className="fas fa-bed" />
-                      <span>{listing.bedrooms} bedrooms </span>
+                      <span>{listing.rooms} bedrooms </span>
                     </div>
                   </div>
                   <div className="btn"> View Listing</div>
@@ -122,7 +122,7 @@ export default class Header extends Component {
         </section>
 
         <section className="sortby-area">
-          <div className="results">390 results found</div>
+          <div className="results">{this.props.globalState.filteredData.length} results found</div>
           <div className="sort-options">
             <select name="sortby" className="sortby" onChange={this.props.change}>
               <option value="price-dsc"> Lowest Price</option>
@@ -135,9 +135,12 @@ export default class Header extends Component {
           </div>
         </section>
 
+         <div className="row">
         <section className="listing-results">{this.loopListings()}</section>
+        </div>
 
         <section id="pagination">
+
           <ul className="pages">
             <li> Prev</li>
             <li className="active"> 1</li>
@@ -146,6 +149,8 @@ export default class Header extends Component {
             <li> 4</li>
             <li> Next</li>
           </ul>
+
+        
         </section>
       </section>
     );
