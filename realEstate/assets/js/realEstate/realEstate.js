@@ -23,11 +23,14 @@ class App extends Component {
       gym: false,
       swimming_pool: false,
       filteredData: listingsData,
-      populateFormsData: ''
+      populateFormsData: '',
+      sortby: "price-asc",
+      view: "box"
     };
     this.change = this.change.bind(this);
     this.filteredData = this.filteredData.bind(this);
     this.populateForm=this.populateForm.bind(this);
+    this.changeView= this.changeView.bind(this)
 
   }
   componentWillMount(){
@@ -57,6 +60,13 @@ class App extends Component {
       }
     );
   }
+
+  changeView(viewName){
+    this.setState({
+      view: viewName
+    })
+  }
+
  filteredData(){
    var newData = this.state.listingsData.filter((item, index)=>{
      console.log(item.extras[index] != this.state.elevator)
@@ -76,6 +86,18 @@ class App extends Component {
        return item.homeType === this.state.homeType
      })
    }
+
+   if(this.state.sortby === 'price-dsc'){
+       newData = newData.sort((a,b) => {
+         return a.price - b.price
+       })
+     }
+
+     if(this.state.sortby === 'price-asc'){
+       newData = newData.sort((a,b) => {
+         return b.price - a.price
+       })
+     }
 
 
 if(this.state.swimming_pool != false){
@@ -163,7 +185,9 @@ if(this.state.basement!= false){
         <section id="content-area">
           <Filter change={this.change} globalState={this.state}
           populateAction={this.populateForm} />
-          <Listings listingsData={this.state.filteredData} />
+          <Listings change={this.change}
+          globalState={this.state}  listingsData={this.state.filteredData}
+          changeView= {this.changeView}/>
         </section>
       </div>
     );
