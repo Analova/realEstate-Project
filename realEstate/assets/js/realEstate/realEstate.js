@@ -22,11 +22,25 @@ class App extends Component {
       elevator: false,
       gym: false,
       swimming_pool: false,
-      filteredData: listingsData
+      filteredData: listingsData,
+      populateFormsData: ''
     };
     this.change = this.change.bind(this);
     this.filteredData = this.filteredData.bind(this);
+    this.populateForm=this.populateForm.bind(this);
+
   }
+  componentWillMount(){
+    var listingsData = this.state.listingsData.sort((a,b)=>{
+         return a.price -b.price
+    })
+
+    this.setState({
+      listingsData
+    })
+  }
+
+
   change(event) {
     var name = event.target.name;
     var value =
@@ -98,13 +112,57 @@ if(this.state.basement!= false){
      filteredData: newData
    })
  }
+
+ populateForm(){
+    // city
+    var cities = this.state.listingsData.map((item)=>{
+      return item.city
+    })
+    // remove everything wich repeats , keeps the one which not repeat
+    cities= new Set(cities)
+    cities = [...cities]
+
+     cities= cities.sort()
+
+
+    // Home homeType
+    var homeTypes = this.state.listingsData.map((item)=>{
+      return item.homeType
+    })
+    homeTypes= new Set(homeTypes)
+    homeTypes=[...homeTypes]
+    homeTypes= homeTypes.sort()
+
+    // bedrooms
+    var bedrooms = this.state.listingsData.map((item)=>{
+      return item.rooms
+    })
+    bedrooms= new Set(bedrooms)
+    bedrooms= [...bedrooms]
+    bedrooms= bedrooms.sort()
+
+
+
+    this.setState({
+      populateFormsData: {
+        homeTypes,
+        bedrooms,
+        cities
+      }
+    },()=>{
+      console.log(this.state)
+    })
+ }
+
+
   render() {
-    // console.log(this.state.listingsData)
+     //console.log(this.state.listingsData)
     return (
       <div>
         <Header />
         <section id="content-area">
-          <Filter change={this.change} globalState={this.state} />
+          <Filter change={this.change} globalState={this.state}
+          populateAction={this.populateForm} />
           <Listings listingsData={this.state.filteredData} />
         </section>
       </div>

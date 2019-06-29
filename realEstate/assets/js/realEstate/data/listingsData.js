@@ -24,7 +24,7 @@ var ListingsData = [
   },
   {
     address: "Rupprecher Strasse 21",
-    city: "Münich",
+    city: "Aachen",
     state: "M",
     rooms: 2,
     price: 345355,
@@ -56,21 +56,23 @@ var ListingsData = [
     homeType: "Studio",
     image: "https://q-ak.bstatic.com/images/hotel/max1024x768/136/136979740.jpg"
   },
+
+
   {
-    address: "Wurst Strasse 3",
-    city: "Berlin",
+    address: "Ana-Mark 76",
+    city: "Bremen",
     state: "WF",
-    rooms: 1,
-    price: 220000,
+    rooms: 2,
+    price: 150000,
     floorSpace: 1000,
-    extras: ["elevator" ],
-    homeType: "Studio",
+   extras: ["elevator", "swimming_pool"],
+    homeType: "House",
     image:
-      "https://www.engelvoelkers.com/images/5c221d7b-6163-442c-a4ca-7cb5bf13382b/beautiful-apartment-in-ciutat-vella?w=576&h=432"
+      "https://www.callsen.de/images/ferienwohnungen/binz/villamathilde/ferienwohnung_22/10_Wohnzimmer.jpg"
   },
   {
     address: "Ana-Mark 76",
-    city: "Münich",
+    city: "Frankfurt am Mai",
     state: "WF",
     rooms: 2,
     price: 150000,
@@ -80,6 +82,7 @@ var ListingsData = [
     image:
       "https://www.callsen.de/images/ferienwohnungen/binz/villamathilde/ferienwohnung_22/10_Wohnzimmer.jpg"
   }
+
 ];
 
 export default ListingsData;

@@ -6,7 +6,54 @@ export default class Filter extends Component {
     this.state = {
       name: "Merry"
     };
+    this.cities = this.cities.bind(this);
+    this.homeTypes = this.homeTypes.bind(this);
+    this.bedrooms = this.bedrooms.bind(this);
   }
+
+  componentWillMount(){
+    this.props.populateAction()
+  }
+
+  cities(){
+    if(this.props.globalState.populateFormsData.cities != undefined){
+      var {cities} = this.props.globalState.populateFormsData
+          return cities.map((item , i)=>{
+             return (
+              <option value={item} key={i}>{item}</option>
+            )
+        })
+    }
+
+  }
+
+  homeTypes() {
+   var { homeTypes } = this.props.globalState.populateFormsData;
+   if (homeTypes !== undefined) {
+     console.log(homeTypes);
+     return homeTypes.map(item => {
+       return (
+         <option key={item} value={item}>
+           {item}
+         </option>
+       );
+     });
+   }
+ }
+ bedrooms() {
+   var { bedrooms } = this.props.globalState.populateFormsData;
+   if (bedrooms !== undefined) {
+     return bedrooms.map(item => {
+       return (
+         <option key={item} value={item}>
+           {item}+ BR
+         </option>
+       );
+     });
+   }
+ }
+
+
 
   render() {
     return (
@@ -19,33 +66,24 @@ export default class Filter extends Component {
             onChange={this.props.change}
           >
             <option value="All">All</option>
-            <option value="Berlin">Berlin</option>
-            <option value="Düsseldorf">Düsseldorf</option>
-              <option value="Münich">Münich</option>
+            {this.cities()}
           </select>
+
+
           <select
             name="homeType"
             className="homeType"
             onChange={this.props.change}
           >
            <option value="All">All Homes</option>
-           <option value="Ranch">Ranch</option>
-            <option value="Condo">Condo</option>
-            <option value="Apartament">Apartament</option>
-            <option value="Studio">Studio</option>
-            <option value="House"> House</option>
-
+               {this.homeTypes()}
           </select>
+
           <select
             name="bedrooms"
-            // className="bedrooms"
             onChange={this.props.change}
           >
-            <option value="0">0+ BR</option>
-            <option value="1">1+ BR</option>
-            <option value="2">2+ BR</option>
-            <option value="3">3+ BR</option>
-            <option value="4">4+ BR</option>
+                {this.bedrooms()}
           </select>
           <div className="filter price">
             <span className="title">Price</span>
